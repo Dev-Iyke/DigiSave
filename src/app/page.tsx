@@ -1,9 +1,11 @@
 'use client'
 
+import SignInPageComponent from "@/components/auth/SignInPageComponent";
+
 export default function Home() {
   return (
-    <div>
-      <h1 className="font-bold text-3xl text-center">Digi Save</h1>
+    <div className="">
+      <SignInPageComponent />
     </div>
   );
 }

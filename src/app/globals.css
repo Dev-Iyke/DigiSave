@@ -1,6 +1,37 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+.custom-loader {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding: 3px;
+  background: conic-gradient(from 135deg at top, var(--loader-color) 90deg, #0000 0) 0
+        calc(50% - 2px) / 8.5px 4.25px,
+    radial-gradient(
+        farthest-side at bottom left,
+        #0000 calc(100% - 3px),
+        var(--loader-color) calc(100% - 2.5px) 99%,
+        #0000
+      )
+      top right/50% 50% content-box content-box,
+    radial-gradient(
+        farthest-side at top,
+        #0000 calc(100% - 3px),
+        var(--loader-color) calc(100% - 2.5px) 99%,
+        #0000
+      )
+      bottom / 100% 50% content-box content-box;
+  background-repeat: no-repeat;
+  animation: s1 1s infinite linear;
+}
+
+@keyframes s1 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -8,6 +39,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-roboto: var(--font-roboto);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -76,6 +108,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --loader-color: #FFFFFF;
 }
 
 .dark {
@@ -110,6 +143,7 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --loader-color: #FFFFFF;
 }
 
 @layer base {
@@ -119,6 +153,19 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.header4 {
+  @apply font-bold text-2xl text-green-700
+}
+.body-med-reg {
+  @apply font-normal text-[11px] text-gray-500
+}
+.body-lg-reg {
+  @apply font-normal text-base text-gray-500
+}
+.body-lg-bold {
+  @apply font-bold text-base text-gray-500
 }
 
 .force-white-toast * {
