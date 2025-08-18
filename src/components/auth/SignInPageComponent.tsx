@@ -2,8 +2,7 @@ import React, { useTransition } from "react";
 import SignInForm from "./SignInForm";
 import { useRouter } from "next/navigation";
 import CustomLoader from "../CustomLoader";
-import { Button } from "../ui/button";
-import { ChevronLeft } from "lucide-react";
+import BackButton from "../BackButton";
 
 const SignInPageComponent = () => {
   const router = useRouter()
@@ -11,14 +10,12 @@ const SignInPageComponent = () => {
   return (
     <div className="flex flex-col justify-between gap-8 min-h-[85vh] relative">
       <div className="flex flex-col gap-8">
-        <Button
-          variant={"ghostBorder"}
-          size={"icon"}
-          onClick={() => startTransition(() => router.push("/signup"))}
-        >
-          <ChevronLeft />
-        </Button>
-        <div className="header4">
+        <BackButton
+          isTransitioning={isTransitioning}
+          route={"/signup"}
+          startTransition={startTransition}
+        />
+        <div className="">
           <h1 className="header4">Hi There 👋</h1>
           <p className="body-lg-reg">Welcome back, Sign in to your account</p>
         </div>

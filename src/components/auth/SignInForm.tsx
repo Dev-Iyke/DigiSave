@@ -53,7 +53,6 @@ const SignInForm = () => {
           name="email"
           render={({ field }) => (
             <FormItem className="w-full">
-              {/* <FormLabel>Title</FormLabel> */}
               <FormControl>
                 <Input placeholder="e.g you@email.com" {...field} />
               </FormControl>
@@ -67,7 +66,6 @@ const SignInForm = () => {
           name="password"
           render={({ field }) => (
             <FormItem>
-              {/* <FormLabel>Password</FormLabel> */}
               <FormControl>
                 <PasswordInput field={field} />
               </FormControl>
@@ -75,13 +73,13 @@ const SignInForm = () => {
             </FormItem>
           )}
         />
-        <p
+        <div
           onClick={() => startTransition(() => router.push("/reset-password"))}
           className="flex justify-end items-center gap-2 font-bold text-sm text-gray-600 cursor-pointer hover:underline"
         >
           Forgot Password?{" "}
           {isTransitioning && <CustomLoader color="gray" />}
-        </p>
+        </div>
 
         <Button disabled={signInPending}>
           {signInPending ? "Loading" : "Sign in"}{" "}
