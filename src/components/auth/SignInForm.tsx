@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod";
 import {z} from 'zod'
@@ -15,8 +15,11 @@ import PasswordInput from './PasswordInput';
 import { Button } from '../ui/button';
 import { useSignIn } from '@/lib/apiLibrary/queryHooks/auth';
 import CustomLoader from '../CustomLoader';
+import { useRouter } from 'next/navigation';
 
 const SignInForm = () => {
+  const router = useRouter()
+  const [isTransitioning, startTransition] = useTransition()
   const {mutateAsync: signIn, isPending: signInPending} = useSignIn()
   const signInFormSchema = z.object({
     email: z.email(),
@@ -72,8 +75,12 @@ const SignInForm = () => {
             </FormItem>
           )}
         />
-        <p className="font-bold text-sm text-gray-600 text-end cursor-pointer hover:underline">
-          Forgot Password?
+        <p
+          onClick={() => startTransition(() => router.push("/reset-password"))}
+          className="flex justify-end items-center gap-2 font-bold text-sm text-gray-600 cursor-pointer hover:underline"
+        >
+          Forgot Password?{" "}
+          {isTransitioning && <CustomLoader color="gray" />}
         </p>
 
         <Button disabled={signInPending}>
