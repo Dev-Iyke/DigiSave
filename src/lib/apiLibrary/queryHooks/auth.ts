@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { axiosInstance, CustomAxiosRequestConfig } from "..";
-import { CreateNewPasswordProps, SignInProps } from "@/interfaces/onboarding";
+import { CreateNewPasswordProps, SignInProps, SignUpProps } from "@/interfaces/onboarding";
 
 export function useSignIn() {
   return useMutation({
@@ -31,5 +31,22 @@ export function useCreateNewPassword() {
     mutationFn: ({payload}: {payload: CreateNewPasswordProps}) => {
       return axiosInstance.post(`/users/reset-password`, payload, {noAuth: true, noToast: false} as CustomAxiosRequestConfig);
     },
+  })
+}
+
+export function useSignUp() {
+  return useMutation({
+    mutationFn: ({payload}: {payload: SignUpProps}) => {
+      return axiosInstance.post(`/users/signup`, payload, {noAuth: true, noToast: false} as CustomAxiosRequestConfig);
+    },
+  })
+}
+
+export function useFetchUser() {
+  return useMutation({
+    mutationFn: () => {
+      return axiosInstance.get(`/users/user`, {noAuth: false} as CustomAxiosRequestConfig);
+    },
+    retry: 1
   })
 }

@@ -1,12 +1,19 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useTransition } from "react";
 import SignUpForm from "./SignUpForm";
 import { Button } from "../ui/button";
+import BackButton from "../BackButton";
 
 const SignUpPageComponent = () => {
   const [showForm, setShowForm] = useState<boolean>(false);
+  const [isTransitioning, startTransition] = useTransition()
   return (
-    <div className="">
+    <div className="flex flex-col gap-6">
+      {!showForm && <BackButton
+        isTransitioning={isTransitioning}
+        route={"/"}
+        startTransition={startTransition}
+      />}
       {!showForm ? (
         <div className="flex flex-col h-full min-h-screen justify-center items-center">
           <div className="flex flex-col justify-center items-center gap-6 text-center max-w-[287px]">
