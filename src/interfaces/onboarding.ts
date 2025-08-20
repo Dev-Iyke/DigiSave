@@ -6,3 +6,8 @@ export interface SignInProps {
 export interface CreateNewPasswordProps {
   newPassword?: string;
 }
+
+export interface SignUpProps extends SignInProps {
+  fullName?: string;
+  phoneNumber?: string;
+}

@@ -6,7 +6,7 @@ import BackButton from "../BackButton";
 
 const SignInPageComponent = () => {
   const router = useRouter()
-    const [isTransitioning, startTransition] = useTransition()
+  const [isTransitioning, startTransition] = useTransition()
   return (
     <div className="flex flex-col justify-between gap-8 min-h-[85vh] relative">
       <div className="flex flex-col gap-8">
