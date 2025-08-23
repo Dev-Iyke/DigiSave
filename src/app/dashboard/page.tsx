@@ -1,12 +1,10 @@
 'use client'
-import { useAuthInit } from '@/hooks/initializeAuth'
+import DashboardHomePage from '@/components/dashboard/pages/DashboardHomePage'
 import React from 'react'
 
+
 const DashboardPage = () => {
-  useAuthInit()
-  return (
-    <div>DashboardPage</div>
-  )
+  return <div><DashboardHomePage /></div>;
 }
 
 export default DashboardPage
