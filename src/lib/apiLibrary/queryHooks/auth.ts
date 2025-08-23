@@ -45,7 +45,7 @@ export function useSignUp() {
 export function useFetchUser() {
   return useMutation({
     mutationFn: () => {
-      return axiosInstance.get(`/users/user`, {noAuth: false} as CustomAxiosRequestConfig);
+      return axiosInstance.get(`/users/me`, {noAuth: false} as CustomAxiosRequestConfig);
     },
     retry: 1
   })
