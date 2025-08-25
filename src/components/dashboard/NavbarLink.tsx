@@ -10,24 +10,21 @@ import { usePathname, useRouter } from "next/navigation";
 import { useTransition } from "react";
 import CustomLoader from "../CustomLoader";
 
-interface SidebarLinkProps {
+interface NavbarLinkProps {
   href: string;
   label: string;
   Icon: React.ElementType;
-  isCollapsed: boolean;
 }
 
-export default function SidebarLink({
+export default function NavbarLink({
   href,
   label,
   Icon,
-  isCollapsed,
-}: SidebarLinkProps) {
+}: NavbarLinkProps) {
   const pathname = usePathname();
   const router = useRouter();
   const [isTransitioning, startTransition] = useTransition();
 
-  // Accommodate both student and sponsor dashboards
   const isActive =
     (href === "/dashboard" && pathname === "/dashboard") ||
     (pathname.startsWith(href) && href !== "/dashboard");
@@ -41,7 +38,7 @@ export default function SidebarLink({
 
   return (
     <Link className="block" href={href} onClick={handleClick}>
-      <div className={`flex flex-col`}>
+      <div className={`flex flex-col items-center gap-2`}>
         <div>
           {isTransitioning ? (
             <CustomLoader color={`green`} />
@@ -49,7 +46,7 @@ export default function SidebarLink({
             <Icon
               size={24}
               className={`transition-colors ${
-                isActive ? "text-green-600" : "text-[#6B7280]"
+                isActive ? "text-green-600" : "text-gray-300"
               } group-hover:text-white`}
             />
           )}
