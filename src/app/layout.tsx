@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased  w-full max-w-[450px] mx-auto font-roboto p-6 h-full min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased  w-full max-w-[450px] mx-auto font-roboto h-full min-h-screen`}
       >
         <AppProviders>{children}</AppProviders>
       </body>

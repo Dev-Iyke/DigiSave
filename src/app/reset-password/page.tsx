@@ -3,7 +3,7 @@ import React from 'react'
 
 const ResetPasswordPage = () => {
   return (
-    <div>
+    <div className='p-6'>
       <ResetPasswordPageComponent />
     </div>
   )

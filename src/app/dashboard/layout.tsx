@@ -10,14 +10,14 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   useAuthInit();
   const auth = useSelector((state: RootState) => state.auth);
   return (
-    <div className="flex flex-col gap-6 justify-between min-h-[90vh]">
+    <div className="flex flex-col gap-6 justify-between min-h-[95vh]">
       {auth.isUserLoading ? (
         <div className="h-screen flex justify-center items-center w-full">
           <CustomLoader color="green" />
         </div>
       ) : (
         <>
-          <div>{children}</div>
+          <div className="p-6">{children}</div>
           <div>
             <DashboardNavbar />
           </div>
