@@ -34,7 +34,7 @@ const SignInForm = () => {
   const { mutateAsync: signIn, isPending: signInPending } = useSignIn();
   const { mutateAsync: getUser, isPending: getUserPending } = useFetchUser();
   const signInFormSchema = z.object({
-    email: z.email(),
+    email: z.email({message: "Invalid email"}),
     password: z.string().min(6, { message: "Min: 6 Characters" }),
   });
 
