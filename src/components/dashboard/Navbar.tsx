@@ -32,7 +32,7 @@ const DashboardNavbar = () => {
   ];
   return (
     <div>
-      <div className="flex justify-between p-4 gap-6 bg-[#0385460D]">
+      <div className="flex justify-between p-4 gap-6 bg-gray-200">
         {navbarLinks.map((nl, i) => (
           <NavbarLink key={i} label={nl.label} href={nl.href} Icon={nl.Icon} />
         ))}

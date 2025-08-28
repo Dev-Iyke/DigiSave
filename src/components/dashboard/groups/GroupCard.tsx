@@ -1,3 +1,4 @@
+import { Progress } from '@/components/ui/progress';
 import { Group } from '@/interfaces/groups'
 import Image from 'next/image'
 import React from 'react'
@@ -17,7 +18,7 @@ const GroupCard = ({ group }: { group: Group }) => {
         </span>
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-3">
         <div className="flex justify-between items-center gap-8">
           <h2 className="font-semibold">{group?.groupName}</h2>
           <div className="flex gap-1.5 items-center flex-wrap">
@@ -29,13 +30,13 @@ const GroupCard = ({ group }: { group: Group }) => {
             </strong>
           </div>
         </div>
-        <div className='flex justify-between gap-8'>
+        <div className="flex justify-between gap-8">
           <div className="flex gap-1.5 items-center flex-wrap">
             <span className="font-normal text-gray-400 text-[12px]">
               Starting date:{" "}
             </span>
             <strong className="font-semibold text-sm">
-              N{group?.contributionAmount * group?.membersList?.length}
+              {new Date(group?.createdAt).toLocaleDateString()}
             </strong>
           </div>
           <div className="flex gap-1.5 items-center flex-wrap">
@@ -45,6 +46,13 @@ const GroupCard = ({ group }: { group: Group }) => {
             <strong className="font-semibold text-sm">
               {group?.contributionAmount} Monthly
             </strong>
+          </div>
+        </div>
+        <div className='flex flex-col gap-1'>
+          <Progress value={33} />
+          <div className='flex justify-between gap-6 text-red-600 text-[10px]'>
+            <span>number {"2,3,4"} available</span>
+            <span>{2}/{7} remaining</span>
           </div>
         </div>
       </div>

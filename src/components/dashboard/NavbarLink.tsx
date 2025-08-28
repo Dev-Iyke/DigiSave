@@ -52,7 +52,7 @@ export default function NavbarLink({
           )}
         </div>
 
-        <p className="body-lg-reg">{label}</p>
+        <p className="body-lg-reg text-[14px]!">{label}</p>
       </div>
     </Link>
   );

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Roboto } from "next/font/google";
+import { Geist, Geist_Mono, Roboto, Montserrat } from "next/font/google";
 import "./globals.css";
 import AppProviders from "@/providers/AppProviders";
 
@@ -18,6 +18,11 @@ const roboto = Roboto({
   subsets: ["latin"],
 });
 
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "DigiSave App",
   description: "Save money to achieve your goals",
@@ -31,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased  w-full max-w-[450px] mx-auto font-roboto h-full min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} ${montserrat.variable} antialiased  w-full max-w-[450px] mx-auto font-roboto h-full min-h-screen`}
       >
         <AppProviders>{children}</AppProviders>
       </body>
